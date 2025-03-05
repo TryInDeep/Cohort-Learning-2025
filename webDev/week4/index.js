@@ -17,7 +17,7 @@ const user = [
   },
 ];
 
-// Query Parameters = ?n=(whatever data you want)
+// Query Parameters : ?n=(whatever data you want)
 app.get("/", (req, res) => {
   const tridipkidneys = user[0].kidneys;
   const numberOfKidneys = tridipkidneys.length;
@@ -88,3 +88,5 @@ function isThereOneUnhealthyKidneys() {
 }
 
 app.listen(3000);
+// https://github.com/100xdevs-cohort-2
+// filter in arrays
