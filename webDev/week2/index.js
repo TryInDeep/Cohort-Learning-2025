@@ -75,14 +75,19 @@ function cleanDone() {
       console.log(`Found an error ${err}`);
     }
     const linesArray = fileContent.split("\n");
-    const filteredLines = linesArray.filter((line) => line.trim() !== "");
-    const updatedContent = filteredLines.join("\n");
+    const filteredLines = linesArray.filter((line) => line.trim() !== "") 
+   
+    console.log(filteredLines);
+    
+    // const updatedContent = filteredLines.join("\n");
 
-    fs.writeFile(fileLocation, updatedContent, "utf-8", (err) => {
-      if (err) {
-        console.log(`Found an error ${err}`);
-      }
-    });
+    // fs.writeFile(fileLocation, updatedContent, "utf-8", (err) => {
+    //   if (err) {
+    //     console.log(`Found an error ${err}`);
+    //   }
+    // });
   });
 }
 cleanFilePromisified().then(cleanDone);
+
+//dksgah
