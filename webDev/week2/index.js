@@ -75,6 +75,7 @@ function cleanDone() {
       console.log(`Found an error ${err}`);
     }
     const linesArray = fileContent.split("\n");
+
     const filteredLines = linesArray.filter((line) => line.trim() !== "") 
    
     console.log(filteredLines);
@@ -90,4 +91,4 @@ function cleanDone() {
 }
 cleanFilePromisified().then(cleanDone);
 
-//dksgah
+
