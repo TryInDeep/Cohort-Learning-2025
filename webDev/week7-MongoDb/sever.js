@@ -1,9 +1,8 @@
 const express = require('express');
-
-const {UserModel, TodoModel} = require("./db");
 const jwt = require("jsonwebtoken");
+const {UserModel, TodoModel} = require("./db");
 const { default: mongoose } = require('mongoose');
-const JWT_SECRET = "asddasda@gmdsajf"
+const { auth, JWT_SECRET } = require("./auth");
 const app = express();
 app.use(express.json());
 
@@ -36,7 +35,7 @@ app.post("/signin", async (req, res) => {
      
      if(user){
         const token = jwt.sign({
-            id:user._id.toString()
+            id: user._id.toString()
         }, JWT_SECRET)
 
         res.json({
@@ -49,31 +48,17 @@ app.post("/signin", async (req, res) => {
      }
 })
 
-function auth(req, res , next){
-    const token = req.headers.token;
-    const response = jwt.verify(token, JWT_SECRET);
-
-    if(response){
-        req.userId = res.id;
-        next();
-    }else{
-        res.status(403).json({
-            message: "Invalid Credentials"
-        })
-    }
-}
-
-app.post("/todo",auth, async (req, res) => {
+app.post("/todo", auth, async (req, res) => {
     const userId = req.userId;
-    const title = req.title;
-
+    const title = req.body.title;
+    
     await TodoModel.create({
-        title,
-        userId
+        userId,
+        title
     })
 
     res.json({
-        message: "Todo Created"
+        message :  "Todo Created"
     })
 
     
@@ -82,12 +67,13 @@ app.post("/todo",auth, async (req, res) => {
 app.get("/todos",auth, async (req, res) => {
     const userId = req.userId;
     const todos = await TodoModel.find({ 
-        userId:userId,
-       
+        userId
     })
+
     res.json({
         todos
     })
-
+   
+})
 
 app.listen(3000)
