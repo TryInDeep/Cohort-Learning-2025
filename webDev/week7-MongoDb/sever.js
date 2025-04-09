@@ -1,4 +1,5 @@
 const express = require('express');
+
 const {UserModel, TodoModel} = require("./db");
 const jwt = require("jsonwebtoken");
 const { default: mongoose } = require('mongoose');
@@ -87,7 +88,6 @@ app.get("/todos",auth, async (req, res) => {
     res.json({
         todos
     })
-})
 
 
 app.listen(3000)
