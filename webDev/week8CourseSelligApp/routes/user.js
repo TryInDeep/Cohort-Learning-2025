@@ -41,11 +41,10 @@ userRouter.post("/signup", async (req , res ) => {
                         error: "Something went wrong"
                 })
         }
-       
 })
 
 userRouter.post("/login", (req , res ) => {
-        
+
 
 })
 
