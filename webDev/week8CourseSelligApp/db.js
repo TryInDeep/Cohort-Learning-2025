@@ -1,23 +1,20 @@
 const mongoose = require("mongoose");
-console.log("connected to");
-
-mongoose.connect("mongodb+srv://Tridip:xpZAnnaxMMUbBQaI@100xdev.upasbqa.mongodb.net/courseSellingApp")
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.Types.ObjectId;
 
 const userSchema = new Schema ({
     email: { type : String, unique: true},
     password: String,
-    firtName: String,
-    lastName: String
+    firstname: String,
+    lastname: String
 
 });
 
 const adminSchema = new Schema ({
     email: { type : String, unique: true},
     password: String,
-    firtName: String,
-    lastName: String
+    firstname: String,
+    lastname: String
 });
 
 const courseSchema = new Schema ({ 
@@ -42,8 +39,8 @@ const purchaseModel =  mongoose.model("purchase", purchaseSchema);
 
 
 module.exports = {
-    userModel:userModel,
-    adminModel:adminModel,
-    courseModel:courseModel,
-    purchaseModel:purchaseModel
+userModel,
+adminModel,
+courseModel,
+purchaseModel
 }
