@@ -75,19 +75,20 @@ adminRouter.post("/login", async (req, res) => {
   }
 });
 adminRouter.post("/course", adminMiddleware, async (req, res) => {
-  const creatorId = req.userId;
+  const adminId = req.userId;
   const { title, description, price, imageUrl } = req.body;
   try {
-    await courseModel.create({
+    const course = await courseModel.create({
       title: title,
       description: description,
       price: price,
       imageUrl: imageUrl,
-      creatorId: creatorId,
+      creatorId: adminId,
     });
     res.json({
-      message: "Course Created"
-    })
+      message: "Course Created",
+      courseId: course._id,
+    });
   } catch (error) {
     res.json({
       error: "Something went wrong",
@@ -95,14 +96,50 @@ adminRouter.post("/course", adminMiddleware, async (req, res) => {
   }
 });
 
-adminRouter.put("/course", adminMiddleware, (req, res) => {
-  res.json({});
+adminRouter.put("/course", adminMiddleware, async (req, res) => {
+  const adminId = req.userId;
+
+  const { title, description, price, imageUrl, courseId } = req.body;
+  try {
+    const course = await courseModel.updateOne(
+      {
+        _id: courseId,
+        creatorId: adminId,
+      },
+      {
+        title: title,
+        description: description,
+        price: price,
+        imageUrl: imageUrl,
+      }
+    );
+    res.json({
+      message: "Course Updated",
+      courseId: course._id,
+    });
+  } catch (error) {
+    res.json({
+      error: "Something went wrong",
+    });
+  }
 });
 
-adminRouter.get("/course/bulk", (req, res) => {
-  res.json({});
+adminRouter.get("/course/bulk", adminMiddleware, async (req, res) => {
+  const adminId = req.userId;
+  try {
+    const courses = await courseModel.find({
+      creatorId: adminId,
+    });
+    res.json({
+      YourCoursesAre : courses
+    });
+  } catch (error) {
+    res.json({
+      error: "Something went wrong",
+    });
+  }
 });
 
 module.exports = {
-  adminRouter
+  adminRouter,
 };
