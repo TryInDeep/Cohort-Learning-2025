@@ -1,6 +1,7 @@
 const express = require("express");
 const Router = express.Router;
 const userRouter = Router();
+
 const { userModel, purchaseModel } = require("../db");
 const { z } = require("zod");
 const bcrypt = require("bcrypt");
@@ -90,5 +91,5 @@ userRouter.get("/purchases", userMiddleware, async (req, res) => {
 });
 
 module.exports = {
-  userRouter,
+  userRouter
 };
