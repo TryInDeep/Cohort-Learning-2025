@@ -1,3 +1,4 @@
+
 import { PostComponent } from "./Post";
 import { useState } from "react";
 
@@ -34,9 +35,11 @@ function App() {
 
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div>{postComponents}</div>
+
       </div>
     </div>
   );
 }
+
 
 export default App;
