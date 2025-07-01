@@ -1,65 +1,45 @@
-import "./App.css";
+
+import { PostComponent } from "./Post";
+import { useState } from "react";
+
 
 function App() {
+  const [posts, setPosts] = useState([]);
+  const postComponents = posts.map((post) => (
+    <PostComponent
+      name={post.name}
+      subtitle={post.subtitle}
+      time={post.time}
+      image={post.time}
+      description={post.description}
+    />
+  ));
+
+  function addPost() {
+    setPosts([
+      ...posts,
+      {
+        name: "Parth",
+        subtitle: "20000 followers",
+        time: "1m ago",
+        image:
+          "https://img.redbull.com/images/c_crop,w_1280,h_640,x_0,y_0/c_auto,w_1200,h_630/f_auto,q_auto/redbullcom/2020/10/30/yrn6erzpnmlqnosjeaws/valorant-operator-killjoy",
+        description: "I can take the whole site by my own",
+      },
+    ]);
+  }
+
   return (
-    <div style={{ backgroundColor: "#dfe6e9", height: "100vh" }}>
+    <div style={{ background: "#dfe6e9", height: "100vh" }}>
+      <button onClick={addPost}> Add Post </button>
+
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <div>
-          <div>
-            {" "}
-            <PostComponent />;
-          </div>
-          <div>
-            {" "}
-            <PostComponent />;
-          </div>
-          <div>
-            {" "}
-            <PostComponent />;
-          </div>
-          <div>
-            {" "}
-            <PostComponent />;
-          </div>
-        </div>
+        <div>{postComponents}</div>
+
       </div>
     </div>
   );
 }
 
-function PostComponent() {
-  const style = {
-    width: 200,
-    backgroundColor: "white",
-    borderRadius: 10,
-    borderColor: "gray",
-    borderwidth: 1,
-    padding: 30,
-  };
-  return (
-    <div style={style}>
-      <div style={{ display: "flex" }}>
-        <img
-          src={
-            "https://appx-wsb-gcp-mcdn.akamai.net.in/subject/2023-01-17-0.17044360120951185.jpg"
-          }
-          alt=""
-          style={{
-            height: 20,
-            width: 20,
-            borderRadius: 20,
-          }}
-        />
-        <div style={{ fontSize: 10, marginLeft: 10 }}>
-          <b>100xDev</b>
-          <div>23,888 followers</div>
-          <div>12m</div>
-        </div>
-      </div>
-
-      <div>What to know how to win big, checkout how these folk won $6000</div>
-    </div>
-  );
-}
 
 export default App;
