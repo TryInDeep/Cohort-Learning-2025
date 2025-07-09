@@ -1,3 +1,4 @@
+
 import PostComponent from "./Post";
 import { useState, useEffect } from "react";
 
@@ -127,17 +128,7 @@ const Timer = () => {
     let clock = setInterval(() => {
       setSeconds((prev) => prev + 1);
     }, 1000);
-
-
-    // Clean Up Function 
-
-    return () => {
-      clearInterval(clock);
-    }
-
-  }, []);
-
-
+    
   return <div>
     {seconds} seconds elapsed
   </div>
