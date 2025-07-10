@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 // function App() {
 // const [posts , setPosts] = useState([])
+=======
+
+import PostComponent from "./Post";
+import { useState, useEffect } from "react";
+>>>>>>> 6f74821c2dc455b8a2a767dde493cedb60feeb5c
 
 // const postComponents = posts.map(post => <PostComponent
 //               name={post.name}
@@ -324,14 +330,7 @@
 
 //---------------------------------- Fragments -----------------------
 
-import React, { useState, useEffect } from 'react';
+i
 
-function App(){
-  return (
-    <div>
-      
-    </div>
-  )
-}
 
 export default App;
