@@ -1,8 +1,6 @@
 
 // function App() {
 // const [posts , setPosts] = useState([])
-
-
 // const postComponents = posts.map(post => <PostComponent
 //               name={post.name}
 //               subtitle={post.subtitle}
@@ -326,7 +324,3 @@
 
 //---------------------------------- Fragments -----------------------
 
-i
-
-
-export default App;
