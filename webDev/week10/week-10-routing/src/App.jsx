@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+
           <Route path="/ " element={<Layout />}>
               <Route path="/neet/online-coaching-class-11" element={<Class11Program />} />
               <Route path="/neet/online-coaching-class-12" element={<Class12Program />} />
@@ -49,6 +51,7 @@ function ErrorPage(){
   )
 }
 
+
 function Class11Program(){
   return(
     <>
@@ -74,9 +77,11 @@ function Class12Program(){
         <button onClick={redirectUser}>
         go back to landing page
       </button>
+
       </div>
     </>
   )
 }
+
 
 export default App
