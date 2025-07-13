@@ -1,87 +1,123 @@
+// import { BrowserRouter, Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 
-import { BrowserRouter, Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
+// function App() {
+//   return (
+//     <>
+//       <BrowserRouter>
+//         <Routes>
+//           <Route path="/" element={<Layout />}>
+//               <Route path="/neet/online-coaching-class-11" element={<Class11Program />} />
+//               <Route path="/neet/online-coaching-class-12" element={<Class12Program />} />
+//               <Route path="/" element={<Landing />} />
+//               <Route path="*" element={<ErrorPage />} />
+//           </Route>
+//         </Routes>
+//       </BrowserRouter>
+//     </>
+//   )
+// }
 
-function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Routes>
+// function Layout(){
+//     return (
+//       <>
+//         <div style={{height: "100vh"}}>
+//           <Link to="/">Allen</Link> | 
+//           <Link to="/neet/online-coaching-class-11">Class Program 11</Link> | 
+//           <Link to="/neet/online-coaching-class-12">Class Program 12</Link> <br />
+//           <div style={{height: "90vh"}}>
+//             <Outlet />
+//           </div>
+//           Footer | Contact Us
+//         </div>
+//       </>
+//     )
+// }
 
-          <Route path="/ " element={<Layout />}>
-              <Route path="/neet/online-coaching-class-11" element={<Class11Program />} />
-              <Route path="/neet/online-coaching-class-12" element={<Class12Program />} />
-              <Route path="/" element={<Landing />} />
-              <Route path="*" element={<ErrorPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </>
-  )
-}
+// function Landing(){
+//   return (
+//     <>
+//      Welcome to allen
+//     </>
+//   )
+// }
 
-function Layout(){
-    return (
-      <>
-        <div style={{height: "100vh"}}>
-          <Link to="/">Allen</Link> | 
-          <Link to="/neet/online-coaching-class-11">Class Program 11</Link> | 
-          <Link to="/neet/online-coaching-class-12">Class Program 12</Link> <br />
-          <div style={{height: "90vh"}}>
-            <Outlet />
-          </div>
-          Footer | Contact Us
-        </div>
-      </>
-    )
-}
+// function ErrorPage(){
+//   return (
+//     <div>
+//        Sorry Page Not Found  
+//     </div>
+//   )
+// }
 
-function Landing(){
-  return (
-    <>
-     Welcome to allen
-    </>
-  )
-}
+// function Class11Program(){
+//   return(
+//     <>
+//       <div>
+//         Class 11 NEET Program Dispyed !!
+//       </div>
+//     </>
+//   )
+// }
 
-function ErrorPage(){
-  return (
-    <div>
-       Sorry Page Not Found  
-    </div>
-  )
-}
+// function Class12Program(){
 
+//   const navigate = useNavigate()
 
-function Class11Program(){
-  return(
-    <>
-      <div>
-        Class 11 NEET Program Dispyed !!
-      </div>
-    </>
-  )
-}
+//   function redirectUser(){
+//     navigate("/")
+//   }
 
-function Class12Program(){
+//   return(
+//     <>
+//       <div>
+//         Class 12 NEET  Program Dispyed !!
+//         <button onClick={redirectUser}>
+//         go back to landing page
+//       </button>
+//       </div>
+//     </>
+//   )
+// }
 
-  const navigate = useNavigate()
+// import {useRef} from 'react'
+// function App (){
 
-  function redirectUser(){
-    navigate("/")
+//   const inputRef = useRef();
+
+//   function focusOnInput() {
+//     // document.getElementById("name").focus()  
+//     inputRef.current.focus();
+
+//   }
+
+//   return (
+//     <>
+//     Sing Up
+//       <input ref={inputRef} type="text"></input>
+//       <input type="text"></input>
+//       <button onClick={focusOnInput}>Submit</button>
+//     </>
+//   )
+// }
+
+import {useRef, useState, useEffect} from 'react'
+// A clock with a start and stop button 
+function App(){
+
+  const [currentCount , setCurrentCount] = useState(1);
+
+  function startClock(){
+    
+    
+    setCurrentCount (currentCount + 1)
   }
-
-  return(
+  
+  return (
     <>
       <div>
-        Class 12 NEET  Program Dispyed !!
-        <button onClick={redirectUser}>
-        go back to landing page
-      </button>
-
-      </div>
-    </>
-  )
-}
-
+        {currentCount}
+        <button onClick={startClock}>Start</button>
+        <br />
+        <button>Stop</button>
 
 export default App
