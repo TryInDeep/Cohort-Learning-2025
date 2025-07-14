@@ -76,9 +76,7 @@
 //       </button>
 //       </div>
 //     </>
-//   )
-// }
-
+//
 // import {useRef} from 'react'
 // function App (){
 
@@ -118,7 +116,6 @@ function App(){
   function stopClock(){
     console.log(timer);
     clearInterval(timer.current)
-
   }
 
   return (
@@ -134,3 +131,4 @@ function App(){
   )
 }
 export default App;
+
