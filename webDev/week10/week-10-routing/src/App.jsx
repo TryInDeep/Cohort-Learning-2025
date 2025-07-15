@@ -129,7 +129,7 @@ function App(){
         <button onClick={startClock}>Start</button>
         <br />
         <button>Stop</button>
-        </div>
+      </div>
     </>
   )
 }
